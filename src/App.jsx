@@ -1,17 +1,18 @@
-import { Route, Routes } from "react-router-dom"
+import { Navigate, Route, Routes } from "react-router-dom"
 import Home from "./components/home/Home"
 import Dashboard from "./components/dashboard/Dashboard"
 import HomeHeader from "./components/home/HomeHeader"
 import DashboardHeader from "./components/dashboard/DashboardHeader"
 
 function App() {
-  const auth = false;
+  const currentUser = false;
   return (
     <>
-      {auth ? <DashboardHeader/> : <HomeHeader/>}
+      {currentUser ? <DashboardHeader/> : <HomeHeader/>}
       <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/dashboard" element={<Dashboard />} />
+        {currentUser && <Route path="/dashboard" element={<Dashboard />} />}
+        {!currentUser && <Route path="/" element={<Home />} />}
+        <Route path="*" element={ <Navigate to={!currentUser ? "/" : "/dashboard"} /> } />
       </Routes>
     </>
   )

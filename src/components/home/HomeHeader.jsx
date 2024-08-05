@@ -56,7 +56,10 @@ const HomeHeader = () => {
               Sign In
             </button>
           </div>
-          <button className={`text-white rounded-full px-3 p-2 text-sm font-medium ${isActive ? "bg-green-700" : "bg-black"} transition-all duration-500`}>
+          <button 
+            className={`text-white rounded-full px-3 p-2 text-sm font-medium ${isActive ? "bg-green-700" : "bg-black"} transition-all duration-500`}
+            onClick={openAuthModal}
+          >
             Get Started
           </button>
         </div>
