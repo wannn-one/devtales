@@ -1,12 +1,30 @@
-import React, { useContext, useState } from 'react'
-import { createContext } from 'react'
+import React, { useContext, useState, createContext, useEffect } from 'react'
+import { onAuthStateChanged } from 'firebase/auth';
+import { auth } from '../firebase/firebase';
+import Loading from '../utils/Loading';
 
-const BlogContext = createContext()
-const Context = ({children}) => {
+const BlogContext = createContext();
+
+const Context = ({ children }) => {
     const [currentUser, setCurrentUser] = useState(false);
+    const [loading, setLoading] = useState(true);
+
+    useEffect(() => {
+      const unsubscribe = onAuthStateChanged(auth, (user) => {
+        if (user) {
+          setCurrentUser(user);
+        } else {
+          setCurrentUser(null);
+        }
+        setLoading(false);
+      });
+  
+      return () => unsubscribe();
+    }, [currentUser]);
+
     return (
       <BlogContext.Provider value={{currentUser, setCurrentUser}}>
-          {children}
+          {loading ? <Loading /> : children}
       </BlogContext.Provider>
     )
 }

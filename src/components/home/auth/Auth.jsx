@@ -6,10 +6,45 @@ import { FcGoogle } from "react-icons/fc";
 import { AiOutlineMail } from "react-icons/ai";
 import SignIn from "./SignIn";
 import SignUp from "./SignUp";
+import { signInWithPopup } from "firebase/auth";
+import { auth, googleProvider, db } from "../../../firebase/firebase"
+import { doc, getDoc, setDoc } from "firebase/firestore";
+import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 
 const Auth = ({ modal, setModal }) => {
   const [createUser, setCreateUser] = useState(false);
   const [signReq, setSignReq] = useState("");
+  const navigate = useNavigate();
+
+  const googleAuth = async () => {
+    try {
+      const createUser = await signInWithPopup(auth, googleProvider);
+      const newUser = createUser.user;
+
+      const ref = doc(db, "users", newUser.uid);
+      const userDoc = await getDoc(ref);
+
+      if (!userDoc.exists()) {
+        await setDoc(ref, {
+          userId: newUser.uid,
+          username: newUser.displayName,
+          email: newUser.email,
+          userImg: newUser.photoURL,
+          bio: "",
+        });
+        navigate("/dashboard");
+        toast.success("User created and signed in");
+        setModal(false);
+      } else {
+        navigate("/dashboard");
+        toast.success("User signed in");
+        setModal(false);
+      }
+    } catch (error) {
+      toast.error(error.message);
+    }
+  };
   
   return (
     <Modal modal={modal} setModal={setModal}>
@@ -26,7 +61,7 @@ const Auth = ({ modal, setModal }) => {
         </button>
         <div className="flex flex-col items-center gap-4 p-6">
           <h2 className="text-lg font-semibold">
-            {createUser ? "Join Medium" : "Welcome Back"}
+            {createUser ? "Join DevTales!" : "Welcome Back!"}
           </h2>
           {signReq === "" ? (
             <>
@@ -34,6 +69,7 @@ const Auth = ({ modal, setModal }) => {
                 <Button
                   icon={<FcGoogle className="text-lg" />}
                   text={`${createUser ? "Sign up" : "Sign in"} with Google`}
+                  click={googleAuth}
                 />
                 {/* <Button
                   icon={<MdFacebook className="text-base text-blue-600" />}
@@ -61,7 +97,7 @@ const Auth = ({ modal, setModal }) => {
             <SignUp setSignReq={setSignReq} />
           ) : null}
           <p className="text-xs text-center text-gray-500 mt-2">
-            Click "Sign in" to agree to Medium's Terms of Service and Privacy Policy.
+            Click "Sign in" to agree to DevTales's Terms of Service and Privacy Policy.
           </p>
         </div>
       </section>
@@ -72,6 +108,7 @@ const Auth = ({ modal, setModal }) => {
 const Button = ({ icon, text, click }) => {
   return (
     <button
+      type="button"
       className="flex items-center justify-center w-full border border-gray-300 px-3 py-1.5 rounded-full text-sm hover:bg-gray-100 transition-all duration-300"
       onClick={click}
     >
