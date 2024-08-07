@@ -3,9 +3,10 @@ import Home from "./components/home/Home"
 import Dashboard from "./components/dashboard/Dashboard"
 import HomeHeader from "./components/home/HomeHeader"
 import DashboardHeader from "./components/dashboard/DashboardHeader"
+import { Blog } from "./context/Context"
 
 function App() {
-  const currentUser = false;
+  const { currentUser } = Blog();
   return (
     <>
       {currentUser ? <DashboardHeader/> : <HomeHeader/>}

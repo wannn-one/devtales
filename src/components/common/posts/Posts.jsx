@@ -1,56 +1,61 @@
-
+import React from "react";
 
 const Posts = () => {
   return (
     <div>
-        <div>Posts</div>
-        <div>Posts</div>
-        <div>Posts</div>
-        <div>Posts</div>
-        <div>Posts</div>
-        <div>Posts</div>
-        <div>Posts</div>
-        <div>Posts</div>
-        <div>Posts</div>
-        <div>Posts</div>
-        <div>Posts</div>
-        <div>Posts</div>
-        <div>Posts</div>
-        <div>Posts</div>
-        <div>Posts</div>
-        <div>Posts</div>
-        <div>Posts</div>
-        <div>Posts</div>
-        <div>Posts</div>
-        <div>Posts</div>
-        <div>Posts</div>
-        <div>Posts</div>
-        <div>Posts</div>
-        <div>Posts</div>
-        <div>Posts</div>
-        <div>Posts</div>
-        <div>Posts</div>
-        <div>Posts</div>
-        <div>Posts</div>
-        <div>Posts</div>
-        <div>Posts</div>
-        <div>Posts</div>
-        <div>Posts</div>
-        <div>Posts</div>
-        <div>Posts</div>
-        <div>Posts</div>
-        <div>Posts</div>
-        <div>Posts</div>
-        <div>Posts</div>
-        <div>Posts</div>
-        <div>Posts</div>
-        <div>Posts</div>
-        <div>Posts</div>
-        <div>Posts</div>
-        <div>Posts</div>
+      <h1>Posts</h1>
+      <h1>Posts</h1>
+      <h1>Posts</h1>
+      <h1>Posts</h1>
+      <h1>Posts</h1>
+      <h1>Posts</h1>
+      <h1>Posts</h1>
+      <h1>Posts</h1>
+      <h1>Posts</h1>
+      <h1>Posts</h1>
+      <h1>Posts</h1>
+      <h1>Posts</h1>
+      <h1>Posts</h1>
+      <h1>Posts</h1>
+      <h1>Posts</h1>
+      <h1>Posts</h1>
+      <h1>Posts</h1>
+      <h1>Posts</h1>
+      <h1>Posts</h1>
+      <h1>Posts</h1>
+      <h1>Posts</h1>
+      <h1>Posts</h1>
+      <h1>Posts</h1>
+      <h1>Posts</h1>
+      <h1>Posts</h1>
+      <h1>Posts</h1>
+      <h1>Posts</h1>
+      <h1>Posts</h1>
+      <h1>Posts</h1>
+      <h1>Posts</h1>
+      <h1>Posts</h1>
+      <h1>Posts</h1>
+      <h1>Posts</h1>
+      <h1>Posts</h1>
+      <h1>Posts</h1>
+      <h1>Posts</h1>
+      <h1>Posts</h1>
+      <h1>Posts</h1>
+      <h1>Posts</h1>
+      <h1>Posts</h1>
+      <h1>Posts</h1>
+      <h1>Posts</h1>
+      <h1>Posts</h1>
+      <h1>Posts</h1>
+      <h1>Posts</h1>
+      <h1>Posts</h1>
+      <h1>Posts</h1>
+      <h1>Posts</h1>
+      <h1>Posts</h1>
+      <h1>Posts</h1>
+      <h1>Posts</h1>
     </div>
-    
-  )
-}
+  );
+};
 
-export default Posts
+export default Posts;
