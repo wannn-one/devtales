@@ -25,7 +25,8 @@ const app = initializeApp(firebaseConfig);
 export const auth = getAuth();
 
 // Export the google provider, you can add more providers if you want
-export const googleProvider = new GoogleAuthProvider();
+export const googleProvider = new GoogleAuthProvider().setCustomParameters({ prompt: "select_account" });
+
 // export const facebookProvider = new FacebookAuthProvider();
 
 // Export the storage
