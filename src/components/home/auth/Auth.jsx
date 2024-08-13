@@ -19,7 +19,7 @@ const Auth = ({ modal, setModal }) => {
 
   const googleAuth = async () => {
     try {
-      const createUser = await signInWithPopup(auth, googleProvider);
+      const createUser = await signInWithPopup(auth, googleProvider)
       const newUser = createUser.user;
 
       const ref = doc(db, "users", newUser.uid);
@@ -85,16 +85,16 @@ const Auth = ({ modal, setModal }) => {
                 {createUser ? "Already have an account?" : "No account?"}
                 <button
                   onClick={() => setCreateUser(!createUser)}
-                  className="text-green-600 hover:text-green-700 font-semibold ml-1"
+                  className="text-green-600 hover:text-green-700 font-semibold ml-1 hover:underline"
                 >
                   {createUser ? "Sign in" : "Create one"}
                 </button>
               </p>
             </>
           ) : signReq === "sign-in" ? (
-            <SignIn setSignReq={setSignReq} />
+            <SignIn setModal={setModal} setSignReq={setSignReq} />
           ) : signReq === "sign-up" ? (
-            <SignUp setSignReq={setSignReq} />
+            <SignUp setModal={setModal} setSignReq={setSignReq} />
           ) : null}
           <p className="text-xs text-center text-gray-500 mt-2">
             Click "Sign in" to agree to DevTales's Terms of Service and Privacy Policy.

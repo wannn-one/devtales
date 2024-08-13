@@ -4,12 +4,14 @@ import Dashboard from "./components/dashboard/Dashboard"
 import HomeHeader from "./components/home/HomeHeader"
 import DashboardHeader from "./components/dashboard/DashboardHeader"
 import { Blog } from "./context/Context"
+import { ToastContainer } from "react-toastify"
 
 function App() {
   const { currentUser } = Blog();
   return (
     <>
       {currentUser ? <DashboardHeader/> : <HomeHeader/>}
+      <ToastContainer />
       <Routes>
         {currentUser && <Route path="/dashboard" element={<Dashboard />} />}
         {!currentUser && <Route path="/" element={<Home />} />}
