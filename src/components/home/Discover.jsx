@@ -1,5 +1,5 @@
 import React from "react";
-import { discoverContent, discoverAction } from "../../data/data";
+import { discoverContent, discoverActions } from "../../data/data";
 
 const Discover = () => {
   return (
@@ -20,7 +20,7 @@ const Discover = () => {
         </button>
       </div>
       <div className="flex items-center flex-wrap gap-3 leading-3 pt-8">
-        {discoverAction.map((item, i) => (
+        {discoverActions.map((item, i) => (
           <button key={i} className="text-md text-customblack hover:underline">
             {item}
           </button>

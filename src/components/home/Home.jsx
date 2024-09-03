@@ -4,7 +4,7 @@ import Trending from "./Trending";
 import Posts from "../common/posts/Posts";
 import Discover from "./Discover";
 
-const Demo = () => {
+const Home = () => {
   return (
     <>
       <Banner />
@@ -21,4 +21,4 @@ const Demo = () => {
   );
 };
 
-export default Demo;
+export default Home;

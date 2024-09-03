@@ -27,7 +27,7 @@ export const discoverContent = [
     "Politics"
 ]
 
-export const discoverAction = [
+export const discoverActions = [
     "Help",
     "Status",
     "About",

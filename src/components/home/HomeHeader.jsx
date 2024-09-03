@@ -4,7 +4,7 @@ import { navbarContent } from "../../data/data";
 import Auth from "./auth/Auth";
 import Logo from "../../assets/Logo.svg"
 
-const DemoHeader = () => {
+const HomeHeader = () => {
   const [isActive, setIsActive] = useState(false);
   const [modal, setModal] = useState(false);
 
@@ -56,4 +56,4 @@ const DemoHeader = () => {
   );
 };
 
-export default DemoHeader;
+export default HomeHeader;
