@@ -38,7 +38,7 @@ const Profile = () => {
       {/* users activities  */}
       <div className="mt-[9rem] flex-[2]">
         <div className="flex items-end gap-4">
-          <h2 className="text-3xl sm:text-5xl font-bold capitalize">
+          <h2 className="text-3xl sm:text-4xl font-bold capitalize">
             {getUserData?.username}
           </h2>
           <p className="text-gray-500 text-xs sm:text-sm">Followers(2)</p>
@@ -97,17 +97,17 @@ const Profile = () => {
             />
             <h2 className="py-2 font-bold capitalize">{getUserData?.username}</h2>
             <p className="text-gray-500 first-letter:uppercase text-sm">
-              {getUserData?.bio}
+              {getUserData?.bio || "No bio"}
             </p>
             <button
               onClick={() => setEditModal(true)}
-              className="text-green-700 pt-6 text-sm w-fit">
+              className="text-green-700 pt-6 text-sm w-fit hover:text-green-900">
               Edit Profile
             </button>
             {/* nav  */}
             <div className="flex-[1] flex items-center flex-wrap gap-3 pt-8">
               {discoverActions.map((item) => (
-                <button key={item} className="text-xs text-black1">
+                <button key={item} className="text-xs text-customblack hover:underline">
                   {item}
                 </button>
               ))}

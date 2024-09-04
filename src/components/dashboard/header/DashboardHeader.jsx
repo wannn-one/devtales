@@ -39,11 +39,11 @@ const DashboardHeader = () => {
           <span className='flex sm:hidden text-3xl text-gray-300 cursor-pointer' onClick={() => setSearchModal(true)}>
             <CiSearch/>
           </span>
-          <Link to="/write" className='hidden md:flex items-center gap-1 text-gray-500'>
+          <Link to="/write" className='hidden md:flex items-center gap-1 text-gray-500 hover:text-black/70'>
             <span>
               <LiaEditSolid className='text-3xl' />
             </span>
-            <span className='text-sm mt-2 hover:underline'>
+            <span className='text-sm mt-2'>
               Write
             </span>
           </Link>

@@ -97,10 +97,10 @@ const EditProfile = ({ editModal, setEditModal, getUserData }) => {
             </div>
             <div>
               <div className="flex gap-4 text-sm">
-                <button onClick={openFile} className="text-green-600">
+                <button onClick={openFile} className="text-green-600 hover:text-green-800">
                   Update
                 </button>
-                <button className="text-red-600">Remove</button>
+                <button className="text-red-600 hover:text-red-800">Remove</button>
               </div>
               <p className="w-full sm:w-[20rem] text-gray-500 text-sm pt-2">
                 Recommended: Square JPG, PNG, or GIF, at least 1,000 pixels per
@@ -118,7 +118,7 @@ const EditProfile = ({ editModal, setEditModal, getUserData }) => {
             onChange={(e) => setForm({ ...form, username: e.target.value })}
             value={form.username}
             type="text"
-            placeholder="username..."
+            placeholder="Username..."
             className="p-1 border-b border-black w-full outline-none"
             maxLength={50}
           />
@@ -134,7 +134,7 @@ const EditProfile = ({ editModal, setEditModal, getUserData }) => {
               onChange={(e) => setForm({ ...form, bio: e.target.value })}
               value={form.bio}
               type="text"
-              placeholder="bio..."
+              placeholder="Put your awesome bio here..."
               className="p-1 border-b border-black w-full outline-none"
               maxLength={160}
             />
@@ -145,10 +145,10 @@ const EditProfile = ({ editModal, setEditModal, getUserData }) => {
         </section>
         {/* foot  */}
         <div className="flex items-center justify-end gap-4 pt-[2rem]">
-          <button className={btn}>Cancel</button>
+          <button className={`${btn} hover:bg-green-800 hover:text-white transition-all duration-100`} >Cancel</button>
           <button
             onClick={saveForm}
-            className={`${btn} bg-green-800 text-white`}>
+            className={`${btn} bg-green-800 text-white hover:bg-white hover:text-green-600 transition-all duration-100`}>
             Save
           </button>
         </div>
